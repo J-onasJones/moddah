@@ -1,5 +1,5 @@
 pub(crate) fn help()
-{{
+{
     println!("Moddah is a managing tool for Minecraft modded clients and servers.
 The supported toolchains are FabricMC, ForgeModLoader, QuiltMC.
 
@@ -40,4 +40,4 @@ Options:
             - [leave blank for current directory]
             - [directory of choice]
     ")
-}}
+}
