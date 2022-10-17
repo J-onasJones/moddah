@@ -15,7 +15,7 @@ fn main()
     
 }
 
-// NEW CONCEPT CAUSE OLD ONE IS GARBAGE:
+// NEW CONCEPT CAUSE OLD ONE IS GARBAGE (implement when too much time aka never):
 // - move args from old to new vector one by one when checked
 // - spit out error when leftover elements in old vector
 // - process elements of new vector
@@ -50,25 +50,21 @@ fn flagprocessing(args: Vec<String>)
     let mut skip = 1; //first element in flags vector always skipped since it's the scripts directory and therefore garbage data
     for c in args.iter()
     {
-        if skip == 0
+        match c.as_str()
         {
-            match c.as_str()
-            {
-                "--help" => {cliargs::help(); std::process::exit(0);},
-                "-h" => {cliargs::help(); std::process::exit(0);},
-                "--version" => cliargs::version(),
-                "-v" => cliargs::version(),
-                "--install" => cliargs::install(),
-                "-i" => cliargs::install(),
-                "--uninstall" => cliargs::uninstall(),
-                "-u" => cliargs::uninstall(),
-                _ => {
-                    errorhandler::unexpectederror();
-                    std::process::exit(-1);
-                },
-            }
-        } else {
-            skip -= 1;
+            "--help" => {cliargs::help(); std::process::exit(0);},
+            "-h" => {cliargs::help(); std::process::exit(0);},
+            "--version" => cliargs::version(),
+            "-v" => cliargs::version(),
+            "--install" => cliargs::install(),
+            "-i" => cliargs::install(),
+            "--uninstall" => cliargs::uninstall(),
+            "-u" => cliargs::uninstall(),
+            _ => {
+                errorhandler::unexpectederror();
+                std::process::exit(-1);
+            },
         }
+        
     }
 }
