@@ -1,7 +1,9 @@
+use std::env;
+
 pub(crate) fn help()
 {
-    println!("Moddah is a managing tool for Minecraft modded clients and servers.
-The supported toolchains are FabricMC, ForgeModLoader, QuiltMC.
+    println!("Moddah is a managing tool for Minecraft modded and plugin servers.
+The supported toolchains are FabricMC, ForgeModLoader, QuiltMC, SpigotMC.
 
 Usage:
     moddah
@@ -40,4 +42,22 @@ Options:
             - [leave blank for current directory]
             - [directory of choice]
     ")
+}
+
+pub(crate) fn version()
+{
+    println!("Moddah version {}-{}({})", env!("CARGO_PKG_VERSION"), env::consts::OS, env::consts::ARCH);
+    std::process::exit(0);
+}
+
+pub(crate) fn install()
+{
+    println!("install");
+}
+
+pub(crate) fn uninstall()
+{
+    println!("To uninstall a modloader instance, simply delete the directory of the instance.
+As of right now there is no way to uninstall an instance with the moddah CLI.
+    ");
 }
